@@ -27,7 +27,7 @@ A bank IFSC code is ABHY0065020
 
 The complete url will be like
 
-http://localhost/api/booking?ifsc=ABHY0065020
+http://localhost/api/banks?ifsc=ABHY0065020
 
 Result:
 
@@ -59,7 +59,7 @@ A bank name is ABHYUDAYA COOPERATIVE BANK LIMITED and city PUNE
 
 The complete url will be like
 
-http://localhost/api/booking?bank_name=ABHYUDAYA COOPERATIVE BANK LIMITED&city=PUNE
+http://localhost/api/banks?bank_name=ABHYUDAYA COOPERATIVE BANK LIMITED&city=PUNE
 
 Result:
 
