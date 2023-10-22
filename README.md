@@ -7,30 +7,36 @@
 
 ## How to use API
 
-call base url like
+### Call base url like
 
+```
 http://localhost/api or  http://127.0.0.1:8000/api
+```
 
+&nbsp;
 ### Getting a bank details by IFSC code
 
-To call api use base url with endpoint
-
-Complete url with endpoint: http://localhost/api/banks
+To call api use base url with endpoint complete url with endpoint:
+```
+http://localhost/api/banks
+```
 
 It also takes an argument 'ifsc' with endpoint
-
+```
 ?ifsc=value
+```
 
-Example:
+&nbsp;
 
-A bank IFSC code is ABHY0065020
+Example: A bank IFSC code is ABHY0065020
 
 The complete url will be like
-
+```
 http://localhost/api/banks?ifsc=ABHY0065020
+```
 
 Result:
-
+```json
 {
     "id": 1,
     "ifsc": "ABHY0065020",
@@ -42,27 +48,33 @@ Result:
     "state": "MAHARASHTRA",
     "bank_name": "ABHYUDAYA COOPERATIVE BANK LIMITED"
 }
+```
 
+&nbsp;
 ### Getting details of all branches of the bank in the city by bank name and city
 
-To call api use base url with endpoint
+To call api use base url with endpoint complete url with endpoint:
+```
+http://localhost/api/banks
+```
 
-Complete url with endpoint: http://localhost/api/banks
-
-It also takes 2 arguments 'city' and 'bank_name' with endpoint
-
+It also takes 2 arguments 'city' and 'name' with endpoint
+```
 ?bank_name=value&city=value
+```
 
-Example:
+&nbsp;
 
-A bank name is ABHYUDAYA COOPERATIVE BANK LIMITED and city PUNE
+Example: A bank name is ABHYUDAYA COOPERATIVE BANK LIMITED and city PUNE
 
 The complete url will be like
-
+```
 http://localhost/api/banks?bank_name=ABHYUDAYA COOPERATIVE BANK LIMITED&city=PUNE
+```
 
 Result:
 
+```json
 {
     "id": 7,
     "ifsc": "ABHY0065105",
@@ -74,6 +86,9 @@ Result:
     "state": "MAHARASHTRA",
     "bank_name": "ABHYUDAYA COOPERATIVE BANK LIMITED"
 },
+```
+
+```json
 {
     "id": 8,
     "ifsc": "ABHY0065106",
@@ -85,3 +100,4 @@ Result:
     "state": "MAHARASHTRA",
     "bank_name": "ABHYUDAYA COOPERATIVE BANK LIMITED"
 }
+```
