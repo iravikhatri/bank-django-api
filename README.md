@@ -75,29 +75,29 @@ http://localhost/api/banks?bank_name=ABHYUDAYA COOPERATIVE BANK LIMITED&city=PUN
 Result:
 
 ```json
-{
-    "id": 7,
-    "ifsc": "ABHY0065105",
-    "bank_id": 60,
-    "branch": "PIMPRI",
-    "address": "SUNSHINE MARKS, CTS NO.4840, MUMBAI-PUNE RD, OPP B AMBEDKAR STATUE, PIMPRI, PUNE-411018",
-    "city": "PUNE",
-    "district": "PUNE",
-    "state": "MAHARASHTRA",
-    "bank_name": "ABHYUDAYA COOPERATIVE BANK LIMITED"
-},
-```
+[
 
-```json
-{
-    "id": 8,
-    "ifsc": "ABHY0065106",
-    "bank_id": 60,
-    "branch": "PAUD PHATA",
-    "address": "MANGALAM CHAMBERS, ERANDWANA, PAUD ROAD, PUNE-411038",
-    "city": "PUNE",
-    "district": "PUNE",
-    "state": "MAHARASHTRA",
-    "bank_name": "ABHYUDAYA COOPERATIVE BANK LIMITED"
-}
+    {
+        "id": 7,
+        "ifsc": "ABHY0065105",
+        "bank_id": 60,
+        "branch": "PIMPRI",
+        "address": "SUNSHINE MARKS, CTS NO.4840, MUMBAI-PUNE RD, OPP B AMBEDKAR STATUE, PIMPRI, PUNE-411018",
+        "city": "PUNE",
+        "district": "PUNE",
+        "state": "MAHARASHTRA",
+        "bank_name": "ABHYUDAYA COOPERATIVE BANK LIMITED"
+    },
+    {
+        "id": 8,
+        "ifsc": "ABHY0065106",
+        "bank_id": 60,
+        "branch": "PAUD PHATA",
+        "address": "MANGALAM CHAMBERS, ERANDWANA, PAUD ROAD, PUNE-411038",
+        "city": "PUNE",
+        "district": "PUNE",
+        "state": "MAHARASHTRA",
+        "bank_name": "ABHYUDAYA COOPERATIVE BANK LIMITED"
+    }
+]
 ```
