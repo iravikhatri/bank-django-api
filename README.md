@@ -26,8 +26,6 @@ It also takes an argument 'ifsc' with endpoint
 ?ifsc=value
 ```
 
-&nbsp;
-
 Example: A bank IFSC code is ABHY0065020
 
 The complete url will be like
@@ -62,8 +60,6 @@ It also takes 2 arguments 'city' and 'name' with endpoint
 ```
 ?bank_name=value&city=value
 ```
-
-&nbsp;
 
 Example: A bank name is ABHYUDAYA COOPERATIVE BANK LIMITED and city PUNE
 
