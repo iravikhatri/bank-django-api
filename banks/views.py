@@ -6,23 +6,24 @@ from banks.serializers import BankSerializer
 from banks.models import Bank
 
 
-class BankAPIView(APIView):
+class BankListAPIView(APIView):
 
     def get(self, request):
         try:
-            ifsc = self.request.query_params.get('ifsc')
-            name = self.request.query_params.get('name')
-            city = self.request.query_params.get('city')
+            ifsc, name, city = (request.query_params.get(param) \
+                for param in ['ifsc', 'name', 'city'])
 
+            # Define initial queryset
+            queryset = Bank.objects.all()
+            if name:
+                queryset = queryset.filter(name=name)
+            if city:
+                queryset = queryset.filter(city=city)
             if ifsc:
-                banks = Bank.objects.filter(ifsc=ifsc)
-            elif name and city:
-                banks = Bank.objects.filter(name=name, city=city)
-            else:
-                banks = Bank.objects.all()
+                queryset = queryset.filter(ifsc=ifsc)
 
-            serializer = BankSerializer(banks, many=True)
-            return Response(serializer.data)
+            serializer = BankSerializer(queryset, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
 
         except Bank.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
@@ -30,9 +31,40 @@ class BankAPIView(APIView):
 
     def post(self, request):
         serializer = BankSerializer(data=request.data)
-
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class BankDetailAPIView(APIView):
+
+    def get(self, request, pk=None, format=None):
+        try:
+            bank_object = Bank.objects.get(pk=pk)
+            serializer = BankSerializer(bank_object)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+
+        except Bank.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+
+    def patch(self, request, pk=None, format=None):
+        bank_object = Bank.objects.get(pk=pk)
+        serializer = BankSerializer(instance=bank_object, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+    def delete(self, request, pk=None, format=None):
+        try:
+            bank_object = Bank.objects.get(pk=pk)
+            bank_object.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+
+        except Bank.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)

@@ -10,3 +10,6 @@ class Bank(models.Model):
     city = models.CharField(max_length=50)
     district = models.CharField(max_length=50)
     state = models.CharField(max_length=30)
+
+    def __str__(self) -> str:
+        return f"Bank(name:{self.name}, branch: {self.branch})"

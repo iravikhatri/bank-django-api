@@ -3,5 +3,6 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.BankAPIView.as_view())
+    path('', views.BankListAPIView.as_view()),
+    path('<int:pk>/', views.BankDetailAPIView.as_view())
 ]
